@@ -67,11 +67,7 @@ function App() {
         setMode = ('READ');
       }}></Nav>
       {content}
-      <Body/>
-      <div>
-        <Footer/>
-      </div>
-      
+      <Footer title="하단부"></Footer>
     </div>
   );
 }
