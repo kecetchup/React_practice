@@ -2,15 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import Body from './component/body';
 import Footer from './component/Footer';
-
-function Header(props){
-  return <header>
-    <h1><a href="/" onClick={function(event){
-      event.preventDefault();
-      props.onChangeMode();
-    }}>{props.title}</a></h1>
-  </header>
-}
+import Header from './component/Header';
 
 function Nav(props){
   const lis = []
@@ -67,14 +59,13 @@ function App() {
   return (
     <div>
       <h1>git변경해보기</h1>
-      <Header title="WEB" onChangeMode={()=>{
-        setMode('WELCOME');
-      }}></Header>
+      <Header/>
       <Nav topics={topics} onChangeMode={(_id)=>{
         setMode('READ');
         setId(_id);
       }}></Nav>
       {content}
+       <Body/>
       <Footer title="하단부"></Footer>
     </div>
   );
