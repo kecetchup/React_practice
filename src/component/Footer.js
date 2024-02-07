@@ -3,3 +3,4 @@ function Footer(){
         <h2>git commit해보기</h2>
     )
 }
+export default Footer;

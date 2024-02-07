@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import Body from './component/body';
+import Footer from './component/footer';
 
 function Header(props){
   return <header>
@@ -66,6 +67,11 @@ function App() {
         setMode = ('READ');
       }}></Nav>
       {content}
+      <Body/>
+      <div>
+        <Footer/>
+      </div>
+      
     </div>
   );
 }
