@@ -66,6 +66,7 @@ function App() {
         setMode = ('READ');
       }}></Nav>
       {content}
+      <Footer title="하단부"></Footer>
     </div>
   );
 }

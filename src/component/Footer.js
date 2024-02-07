@@ -1,5 +1,5 @@
-function Footer(){
+function Footer(props){
     return(
-        <h2>git commit해보기</h2>
+        <h2>{props.title}</h2>
     )
 }
