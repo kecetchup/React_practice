@@ -58,6 +58,7 @@ function App() {
 
   return (
     <div>
+      <h1>git변경해보기</h1>
       <Header title="WEB" onChangeMode={()=>{
         setMode = ('WELCOME');
       }}></Header>
