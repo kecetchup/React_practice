@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import Body from './component/body';
-import Footer from './component/footer';
+import Footer from './component/Footer';
 
 function Header(props){
   return <header>
@@ -51,7 +51,7 @@ function App() {
 
   let content = null;
   
-  if(mode === 'WElCOME'){
+  if(mode === 'WELCOME'){
     content = <Article title = "Welcome" body="Hello, WEB"></Article>
   }else if(mode === 'READ'){
     content = <Article title = "Read" body="Hello, Read"></Article>
@@ -61,10 +61,10 @@ function App() {
     <div>
       <h1>git변경해보기</h1>
       <Header title="WEB" onChangeMode={()=>{
-        setMode = ('WELCOME');
+        setMode('WELCOME');
       }}></Header>
       <Nav topics={topics} onChangeMode={(id)=>{
-        setMode = ('READ');
+        setMode('READ');
       }}></Nav>
       {content}
       <Footer title="하단부"></Footer>
