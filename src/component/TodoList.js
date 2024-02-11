@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useMemo,useState} from "react";
 import TodoItem from "./TodoItem";
 import "./TodoList.css";
 
@@ -13,7 +13,8 @@ const TodoList = ({todo, onUpdate, onDelete}) =>{
         : todo.filter((it) => it.content.toLowerCase().includes(search.toLowerCase())
         );
     }
-    const analyzeTodo = () => {
+    const analyzeTodo = useMemo(() => {
+        console.log("analyzeTodo 함수 호출");
         const totalCount = todo.length;
         const doneCount = todo.filter((it) => it.isDone).length;
         const notDoneCount = totalCount - doneCount;
@@ -22,8 +23,8 @@ const TodoList = ({todo, onUpdate, onDelete}) =>{
             doneCount,
             notDoneCount,
         };
-    };
-    const {totalCount, doneCount, notDoneCount} = analyzeTodo();
+    },[todo]);
+    const {totalCount, doneCount, notDoneCount} = analyzeTodo;
     return(
         <div className="TodoList">
             <h4>Todo List 🍀</h4>
