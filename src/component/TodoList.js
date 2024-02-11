@@ -45,5 +45,8 @@ const TodoList = ({todo, onUpdate, onDelete}) =>{
             </div>
         </div>
     );
+}
+TodoList.defaultProps = {
+    todo: [],
 };
 export default TodoList;

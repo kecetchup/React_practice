@@ -1,9 +1,10 @@
-import { useRef, useReducer, useCallback } from 'react';
+import React, { useRef, useReducer, useCallback } from 'react';
 import './App.css';
 
 import Header from './component/Header';
 import TodoEditor from './component/TodoEditor';
 import TodoList from './component/TodoList'
+
 
 const mockTodo =[
   {
@@ -47,6 +48,8 @@ function reducer(state, action){
       return state;
   }
 }
+const TodoContext = React.createContext();
+
 function App() {
   const idRef = useRef(3);
   const [todo,dispatch] = useReducer(reducer,mockTodo);
@@ -82,8 +85,10 @@ function App() {
   return (
     <div className='App'>
     <Header/>
-    <TodoEditor onCreate={onCreate}/>
-    <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete}/>
+    <TodoContext.Provider value={{todo, onCreate, onUpdate, onDelete}}>
+      <TodoEditor/>
+      <TodoList/>
+    </TodoContext.Provider>
     </div>
   );
 }
