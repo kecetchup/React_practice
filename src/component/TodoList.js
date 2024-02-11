@@ -4,9 +4,8 @@ import TodoItem from "./TodoItem";
 import "./TodoList.css";
 
 const TodoList = () =>{
-    const { todo, onUpdate, onDelete} = useContext(TodoContext);
+    const {todo} = useContext(TodoContext);
     const storeData = useContext(TodoContext);
-    console.log(storeData);
     const [search,setSearch] = useState("");
     const onChangeSearch = (e) => {
         setSearch(e.target.value);
@@ -42,9 +41,7 @@ const TodoList = () =>{
                 {getSearchResult().map((it) => (
                     <TodoItem 
                     key={it.id} 
-                    {...it} 
-                    onUpdate={onUpdate}
-                    onDelete={onDelete}/>
+                    {...it}/>
                 ))}
             </div>
         </div>
