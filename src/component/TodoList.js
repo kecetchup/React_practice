@@ -1,8 +1,12 @@
-import { useMemo,useState} from "react";
+import {useContext, useMemo,useState} from "react";
+import { TodoContext } from "../App";
 import TodoItem from "./TodoItem";
 import "./TodoList.css";
 
-const TodoList = ({todo, onUpdate, onDelete}) =>{
+const TodoList = () =>{
+    const { todo, onUpdate, onDelete} = useContext(TodoContext);
+    const storeData = useContext(TodoContext);
+    console.log(storeData);
     const [search,setSearch] = useState("");
     const onChangeSearch = (e) => {
         setSearch(e.target.value);

@@ -4,7 +4,7 @@ import './App.css';
 import Header from './component/Header';
 import TodoEditor from './component/TodoEditor';
 import TodoList from './component/TodoList'
-
+export const TodoContext = React.createContext();
 
 const mockTodo =[
   {
@@ -48,7 +48,7 @@ function reducer(state, action){
       return state;
   }
 }
-const TodoContext = React.createContext();
+
 
 function App() {
   const idRef = useRef(3);
