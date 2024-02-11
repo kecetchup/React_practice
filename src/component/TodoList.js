@@ -1,11 +1,10 @@
 import {useContext, useMemo,useState} from "react";
-import { TodoContext } from "../App";
+import { TodoStateContext } from "../App";
 import TodoItem from "./TodoItem";
 import "./TodoList.css";
 
 const TodoList = () =>{
-    const {todo} = useContext(TodoContext);
-    const storeData = useContext(TodoContext);
+    const {todo} = useContext(TodoStateContext);
     const [search,setSearch] = useState("");
     const onChangeSearch = (e) => {
         setSearch(e.target.value);
@@ -17,7 +16,6 @@ const TodoList = () =>{
         );
     }
     const analyzeTodo = useMemo(() => {
-        console.log("analyzeTodo 함수 호출");
         const totalCount = todo.length;
         const doneCount = todo.filter((it) => it.isDone).length;
         const notDoneCount = totalCount - doneCount;
